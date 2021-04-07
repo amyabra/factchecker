@@ -30,7 +30,4 @@ SELECT 'budget'  FROM  `TaxInfo`
 ?>
  
 <<change d3.csv to d3.json>>
-d3.json("php/test.php", function(error, data) {
-    data.forEach(function(d) {
-        d.budget = parseDate(d.date);
-    });
+d3.json("php/test.php", function(error, data));
