@@ -1,0 +1,36 @@
+<<how to connect your database>>
+<<create php document connection>>
+<?php
+$hostname = "localhost"; <<usual name for your host
+$dbname = "postgres"; << sample set up for postgres
+$username = "postgres";
+$pass = "password"; << the password you set to access the server
+
+$server = pg_connect($hostname, $username, $pass);
+$connection = pg_select_db($dbname, $server);
+
+    $myquery = "
+SELECT 'budget'  FROM  `TaxInfo`
+";
+
+ if ( ! $query ) {
+        echo pg_error();
+        die;
+    }
+    
+    $data = array();
+    
+    for ($x = 0; $x < pg_num_rows($query); $x++) {
+        $data[] = pg_fetch_assoc($query);
+    }
+    
+    echo json_encode($data);     
+     
+    pg_close($server);
+?>
+ 
+<<change d3.csv to d3.json>>
+d3.json("php/test.php", function(error, data) {
+    data.forEach(function(d) {
+        d.budget = parseDate(d.date);
+    });
