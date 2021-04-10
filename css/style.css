@@ -1,16 +1,49 @@
 
+@keyframes redtoblue {
+    from {background-color: ##ab1b25;}
+    to {background-color: #3466ba;}
+}
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family:"Trochut", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #000000;
   height: 100%;
   margin: 0;
   overflow-x: hidden;
   position: relative;
+  animation-name: redtoblue;
+  animation-duration: 3s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
 }
 
-nav {
-	display: flex;
-	color: white;
-	background-color: #4B8F97;
+background{
+
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+nav a:hover{
+  color:#000;
+}
+
+nav a::before{
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250px;
+}
+
+nav a:hover::before{
+  width:100%;
 }
 
 h1 {
@@ -20,8 +53,8 @@ h1 {
 /* stylesheet for your custom graph */
 
 .states {
-  fill: none;
-  stroke: black;
+  fill: ;
+  stroke: white;
   stroke-linejoin: round;
 }
 
